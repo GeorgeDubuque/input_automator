@@ -1,3 +1,3 @@
-from RuneBot.file_creator import *
+from file_creator import *
 
 FileCreator()

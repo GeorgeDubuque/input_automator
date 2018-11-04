@@ -1,3 +1,3 @@
-from RuneBot.play import *
+from play import *
 
 Bot()

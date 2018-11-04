@@ -2,7 +2,7 @@ import time
 import pyautogui
 import random
 import os
-from RuneBot.sequences import *
+from sequences import *
 
 hour = 3600
 
