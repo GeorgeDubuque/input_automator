@@ -1,8 +1,11 @@
+import sys
 import time
 import pyautogui
 import random
 import os
 from sequences import *
+
+from file_creator import *
 
 hour = 3600
 
@@ -16,6 +19,8 @@ class Bot:
         self.curr_time = time.time()
         self.prev_time = self.start_time
 
+        self.file_creator = FileCreator("mine_iron_pos", "mineIron", 475)
+
         print(self.bot_time, self.action)
 
         self.do(self.action)
@@ -28,9 +33,11 @@ class Bot:
     def read_mouse(self, filename):
 
         filename = self.find(filename, ".")
-        print("filename", filename)
         fp = open(filename, "r")
         lines = fp.readlines()
+        del lines[len(lines) - 1]
+        del lines[len(lines) - 1]
+        del lines[len(lines) - 1]
         print("reading", filename)
         i = 0
         time.sleep(3)
@@ -65,9 +72,12 @@ class Bot:
     def do_sequence(self, sequence):
         self.curr_time = time.time()
         print(self.curr_time - self.prev_time, self.bot_time)
-        while self.curr_time - self.prev_time < self.bot_time:
+        while self.curr_time - self.start_time < self.bot_time:
             random_sequence = self.randomize_sequence(sequence)
             print("sequence", random_sequence)
             for file in random_sequence:
-                self.read_mouse(file)
+                if self.curr_time - self.start_time < self.bot_time:
+                    self.read_mouse(file)
+                else:
+                    sys.exit()
         self.prev_time = time.time()

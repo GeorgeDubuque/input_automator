@@ -12,12 +12,11 @@ smelt_sequence = [with_iron_list, to_furn_list, smelt_list, fal_to_bank_list, de
 
 # Mine Iron Ore in Varrock
 
-mine_list = ["mineIron", "mineIron1", "mineIron2", "mineIron3", "mineIron4", "mineIron5", "mineIron6", "mineIron7"]
-var_to_bank_list = ["varrockMineToBank", "varrockMineToBank1", "varrockMineToBank2", "varrockMineToBank3",
-                    "varrockMineToBank4", "varrockMineToBank5"]
-to_mine_list = ["varrockBankToMine", "varrockBankToMine3",
-                "varrockBankToMine5"]
+mine_list = ["mineIron"]
+var_to_bank_list = ["mtb", "mtb1", "mtb2", "mtb3", "mtb4", "mtb5", "mtb6"]
+to_mine_list = ["btm", "btm1"]
 deposit_list = ["depAll", "depAll1", "depAll2", "depAll3", "depAll4"]
+
 
 mine_iron_sequence = [mine_list, var_to_bank_list, deposit_list, to_mine_list]
 

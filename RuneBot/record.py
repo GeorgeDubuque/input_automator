@@ -10,7 +10,14 @@ class MouseRecorder:
         print("initting")
         self.curr_time = time.time()
         self.prev_time = time.time()
-        self.filename = sys.argv[1]
+        self.action = input("Action:\n")
+        self.actionable = input("On:\n")
+        self.filename = input("Write file:\n")
+        if self.actionable != "":
+            self.filename = "./" + self.action + "/" + self.actionable + "/" + self.filename
+        else:
+            self.filename = "./" + self.action + "/" + self.filename
+
         self.mouse = Controller()
         if os.path.isfile(self.filename):
             os.remove(self.filename)

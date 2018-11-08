@@ -5,16 +5,14 @@ import os
 
 class FileCreator:
 
-    def __init__(self):
+    def __init__(self, read_file, write_file, number_of_clicks):
         self.read_filename = ""
         self.write_filename = ""
         self.num_lines = 0
-        if len(sys.argv) < 4:
-            print("SPECIFY FILE TO READ, FILE TO WRITE AND NUMBER OF LINES TO WRITE")
-        else:
-            self.read_filename = sys.argv[1]
-            self.write_filename = sys.argv[2]
-            self.num_lines = int(sys.argv[3])
+        self.read_filename = read_file
+        self.write_filename = write_file
+        self.num_lines = number_of_clicks
+        self.curr_file_num = 0
 
         self.unique_xy = []
         self.unique_delay = []
@@ -44,6 +42,7 @@ class FileCreator:
         return unique_pos
 
     def create_file(self):
+        self.write_filename = self.write_filename
         if os.path.isfile(self.write_filename):
             os.remove(self.write_filename)
             fp = open(self.write_filename, "a")
